@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main (int argc, char** argv )
+{
+   int MystereyNumber = 0, GivingNumber = 0,deficulty = 1,boolean = 0,Time = 0,MAX = 0;
+   
+   const int MIN = 1;
+do {
+    srand(time(NULL));
+    printf("choose deficulty:\n");
+    printf(" 1:from 1 to 10\n 2:from 1 to 100\n 3:from 1 to 1000\n");
+    scanf("%d",&deficulty);
+  
+    switch(deficulty)
+    {
+    case 1:MAX=10;
+    break;
+    case 2:MAX=100;
+    break;
+    case 3:MAX=1000;
+    break;
+        
+    }
+  
+        MystereyNumber = (rand() % (MAX - MIN + 1)) + MIN;
+        do{
+        printf("What's the number ? ");
+        scanf("%d", &GivingNumber);
+        Time++;
+
+        if ( MystereyNumber > GivingNumber)
+            printf("give more!\n\n");
+        else if ( MystereyNumber < GivingNumber)
+            printf("give less !\n\n");
+        else
+            printf ("Congrats u got it within %d Times!!!\n\n",Time);
+          } while (GivingNumber !=  MystereyNumber);
+        printf("another one? choose yes=1 or NO=0\n");
+        scanf("%d",&boolean); 
+     
+    }
+    while (boolean);
+}
